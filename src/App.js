@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, styled } from '@material-ui/core';
+import Login from './Components/Login';
 import './App.css';
 
 function App() {
@@ -9,12 +10,12 @@ function App() {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    background: 'linear-gradient(180deg, rgba(255,144,30,1) 0%, rgba(0,29,94,1) 60%, rgba(0,29,94,1) 100%)',
+    background: 'radial-gradient(circle, rgba(255,144,30,1) 0%, rgba(0,29,94,1) 100%)',
   });
 
   return (
     <AppStyle>
-      teste
+      <Login />
     </AppStyle>
   );
 }
