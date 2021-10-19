@@ -48,3 +48,12 @@ export const StyleBtn = styled(Button)({
   width: '232px',
   backgroundColor: 'var(--color-primary)',
 });
+
+export const AppStyle = styled(Box)({
+  height: '100vh',
+  display: 'flex',
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  background: 'radial-gradient(circle, rgba(255,144,30,1) 0%, rgba(0,29,94,1) 100%)',
+});
