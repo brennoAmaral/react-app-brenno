@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Box, styled } from '@material-ui/core';
+import Login from './Components/Login';
 import './App.css';
 
 function App() {
+  const AppStyle = styled(Box)({
+    height: '100vh',
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: 'radial-gradient(circle, rgba(255,144,30,1) 0%, rgba(0,29,94,1) 100%)',
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppStyle>
+      <Login />
+    </AppStyle>
   );
 }
 
