@@ -1,0 +1,12 @@
+
+Nome da Branch: feature/profile
+
+Criar uma página de Perfil do cliente. Layout livre para desenvolvimento. Sugestão: https://help.wprentals.org/wp-content/uploads/2016/01/add-profile-info-as-admin.png
+Deve apenas exibir os seguintes dados:
+	[] Nome de usuário;
+	[] E-mail de usuário;
+	[] Data de Nascimento;
+	[] Celular;
+	[] Descrição sobre o usuário;
+
+Sugestão de desafio: campo Celular deve receber um número não-formato, e formatar de acordo com uma máscara, como (##) #-####-####

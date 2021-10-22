@@ -1,0 +1,5 @@
+Nome da Branch: feature/co-owners
+
+Criar uma página de Co-Titulares. Layout ao gosto do desenvolvedor.
+Deve exibir uma tabela com a lista de Co-Titulares existentes. A tabela deve ser responsiva.
+Deve ter um botão para cadastrar um novo Co-Titular, que direcionará para a página certa.

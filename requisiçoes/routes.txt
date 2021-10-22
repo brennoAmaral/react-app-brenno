@@ -1,0 +1,16 @@
+Nome da Branch: feature/routes
+
+Deverão existir as seguintes rotas na aplicação:
+
+/ --> Raiz da sua aplicação. Se estiver logado, direciona para /home. Se não estiver logado, direciona para /login.
+/login --> Tela de Login.
+/home --> Tela de Home.
+/perfil --> Tela de Perfil do usuário logado.
+/cotitulares --> Tela de Co-titulares do usuário logado.
+/cotitulares/cadastrar --> Tela de cadastro de um novo Co-titular para o usuário logado.
+/nao-encontrado --> Uma tela padrão para rota não encontrada.
+
+Será necessário criar um arquivo que agregue cada uma das rotas de forma organizada.
+Ou seja, no App.js só existirá um componente chamado "<Routes />".
+Cada página deverá existir em uma página dentro da pasta /pages.
+Criar uma página para cada rota descrita com um conteúdo vazio neste primeiro momento.

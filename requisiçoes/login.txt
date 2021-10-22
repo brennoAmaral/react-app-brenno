@@ -1,0 +1,32 @@
+Nome da Branch: feature/login
+
+Utilize o Formik ou React Hook Forms no formulário de Login.
+Crie uma tela de Login que se assemelhe a este exemplo: https://colorlib.com/wp/wp-content/uploads/sites/2/login-form-v11.jpg
+Obedecer as seguintes regras:
+[x] O fundo da tela de login deverá ser um gradiente. Cores à escolha do desenvolvedor.
+[] O container de Login deverá:
+	[x] Ter uma largura máxima de 550px;
+	[x] Estar centralizado na página automaticamente;
+	[x] Conter um ícone/imagem da aplicação;
+	[x] Abaixo dele, o texto "Login";
+	[x] Abaixo do texto "Login", dois inputs: um para usuário, outro para senha;
+	[x] O usuário só é válido se tiver mais de 1 caracter;
+	[x] A senha só é válida se tiver mais de 6 caracteres;
+	[] O usuário só poderá aceitar letras e números, nenhum caracter especial;
+	[] A senha só poderá aceitar números, nenhuma letra e nenhum caracter especial;
+	[x] Deverá exibir um erro quando o campo não for preenchido corretamente;
+	[x] Este erro só deve ser exibido quando o campo já foi tocado alguma vez, ou tentou submeter o formulário;
+	[] A senha deverá ter um ícone de ocultar/exibir;
+	[] Abaixo dos inputs, deverá ter um checkbox de "Lembrar minha senha";
+	[x] Deverá ter um botão de "Login" que seja do mesmo tamanho dos inputs, com bordas arredondadas, e texto centralizado;
+	[] O botão "Login" só deve ser habilitado quando os campos forem válidos;
+	[x] Abaixo do botão "Login", deverá haver um outro botão no formato Link ou Transparente, com a opção "Esqueci minha senha";
+[] O botão "Esqueci minha senha" abrirá um Modal no seguinte formato:
+	[] Contém um título e texto solicitando ao usuário para preencher seu nome de usuário, que enviaremos um e-mail de recuperação;
+	[] Após preencher, deverá ter um botão "Confirmar", que só é habilitado quando o campo está preenchido;
+	[] Após confirmar, deverá fechar o Modal, e abrir um Toast avisando que o e-mail foi enviado;
+[] O botão "Login" deverá ter o seguinte comportamento ao ser clicado, se os campos forem válidos:
+	[] Exibir um Loading no topo de tudo que ocupe a tela toda e desabilite a interação com a tela;
+	[] Exibir tal Loading por 3 segundos;
+	[] Após isso, carregar a Home;
+	[] Dica para o Loading: Criar no App.js, e passar uma função de liga/desliga (na próxima etapa, criaremos um dispatch via Redux dele);
