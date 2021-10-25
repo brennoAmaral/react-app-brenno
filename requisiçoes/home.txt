@@ -1,0 +1,20 @@
+Nome da Branch: feature/home
+
+Criar uma página Home da sua aplicação semelhante à tela de Conta da Google: https://myaccount.google.com/
+[] Contém um Header com:
+	[] O título ou logo do App à esquerda;
+	[] O ícone do usuário logado à direita
+	[] Ao clicar no ícone do usuário, deve exibir um Pop Over com as opções "Perfil" e "Sair".
+	[] A opção "Perfil" direcionará para a tela de Perfil. A opção Sair exibirá um Loading por três segundos, e deslogará o usuário, retornando ao Login. Utilizar o Redux, pois o estado da aplicação deve ficar limpo.
+
+[] Contém um Conteúdo com:
+	[] Uma barra lateral à esquerda com as navegações (Home, Perfil, Co-Titulares)
+	[] Deve ter uma foto de perfil centralizada e circular
+	[] Deve exibir "Bem-vindo, {username}!" de acordo com o usuário logado (obter do Redux);
+	[] O {username} no texto deve estar em uma cor e peso diferente;
+
+O conteúdo principal deve ter quatro Cards em formato de Grid:
+	[] Saldo da conta. Se for negativa, ficará vermelho. Senão, ficará verde.
+	[] Cartão de crédito e o valor da fatura atual, com o símbolo da MasterCard no canto;
+	[] Status da conta, se está ativa, inativa ou inadimplente.
+	[] Co[]Titulares, exibindo a quantidade cadastrada, e um botão para cadastrar mais.

@@ -1,0 +1,12 @@
+Nome da Branch: feature/co-owners-new
+
+Criar uma página para cadastrar um novo Co-Titulares. Layout ao gosto do desenvolvedor.
+Deve conter um formulário com os seguintes campos:
+	[] CPF: formatar automaticamente, permitir somente números;
+	[] Nome: permitir somente letras;
+	[] Data de Nascimento: formatar automaticamente, permitir somente números;
+	[] Celular: formatar automaticamente, permitir somente números;
+
+Efetuar a lógica do botão de Confirmação de acordo com a validação dos campos.
+Deve retornar para a página de Co-Titulares com o Co-Titular em exibição.
+Utilizar o Redux para salvar a lista de Co-Titulares no estado da aplicação.

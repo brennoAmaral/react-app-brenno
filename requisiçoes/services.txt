@@ -1,0 +1,42 @@
+
+Antes de começar, algumas sugestões:
+[] Exercite suas habilidades como Dev em um projeto Scrum. Analise todas as tarefas que precisam ser executadas, e tente destrinchá-las em sub-tarefas. Por exemplo, a tarefa de criação de Login pode ser divida em "Criar fundo em gradiante", "Implementar card principal", "Criar formulário", etc. Marque essas tarefas em um bloco de notas, e vá marcando como concluída ao passo em que for executando.
+[] Exercite seus conhecimentos de Git, e mantenha suas branches sempre organizadas e atualizadas.
+
+--------------------------
+
+Crie uma Aplicação Web que utilize o seguinte formato:
+[] Criado com Create React App;
+[] Pode utilizar NPM ou Yarn, sem restrições;
+[] Utilize React Router para direcionamento de rotas;
+[] Utilize React Redux para gerenciamento de estado;
+[] Utilize React Redux Thunk para integração assíncrona com o React Redux;
+[] Utilize React Redux Persist para salvar o gerenciamento de estado localmente;
+[] Utilize Axios para executar chamadas de serviços;
+[] Utilize Material UI como biblioteca de componentes;
+[] Utilize Styled Components para estilização de componentes;
+[] Utilize Formik ou React Hook Forms para criar formulários;
+[] Utilize, em maioria, Componentes Funcionais;
+
+====================================================
+
+
+Nome da Branch: feature/services
+
+Criar, dentro de redux/services/, um arquivo para cada abordagem do app (igual aos Reducers), para chamar uma API que irá responder aos chamados.
+A API será entregue para vocês já desenvolvida, com os seguintes endpoints:
+[] POST /login
+	[] Body terá "username" e "password"
+[] GET /profile
+	[] Retornará os dados que exibem na tela de Perfil
+[]  GET /co-owners
+	[] Retornará a lista de co-titulares cadastrados
+
+Utilizar o Axios para consultar. Integrar nas chamadas do Redux, conforme a abordagem do Redux Thunk propõe.
+Alterar as telas necessárias para trocar os mocks pelas chamadas dos serviços.
+
+--------------------------
+
+Nome da Branch: feature/unit-testing
+
+Implemente testes unitários nos seus componentes utilizando Jest e Enzyme.

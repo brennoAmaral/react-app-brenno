@@ -1,7 +1,12 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Login from './pages/Login';
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+} from 'react-router-dom';
+import Login from './Login';
+import NaoEncontrado from './NaoEncontrado';
 
 const Routes = [
   { path: '/', page: <Box> </Box> },
@@ -10,7 +15,6 @@ const Routes = [
   { path: '/perfil', page: <Box> perfil </Box> },
   { path: '/cotitulares', page: <Box> cotitulares </Box> },
   { path: '/cotitulares/cadastrar', page: <Box> cadastrar </Box> },
-  { path: '/nao-encontrado', page: <Box> erro 404 </Box> },
 ];
 
 export default function Routers() {
@@ -23,6 +27,7 @@ export default function Routers() {
               {route.page}
             </Route>
           ))}
+          <Route path="/*" component={NaoEncontrado} />
         </Switch>
       </BrowserRouter>
     </Box>

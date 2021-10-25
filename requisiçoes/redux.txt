@@ -1,0 +1,28 @@
+Nome da Branch: feature/redux
+
+Implementar o gerenciamento de estado básico com React Redux.
+Inicialmente, vamos implementar as ações para a tela de Login.
+Instalar as bibliotecas necessárias para o funcionamento do Redux, Redux Thunk e Redux Persist.
+
+Dentro de /redux, criar uma pasta /actions, com o arquivo types.js, exportando constantes das ações:
+	[] APP_SHOW_LOADING;
+	[] APP_HIDE_LOADING;
+	[] LOGIN_DO_FORGOT_PASS;
+	[] LOGIN_DO_LOGIN;
+
+Dentro de /redux/actions, criar dois arquivos, AppActions.js e LoginActions.js.
+Dentro de cada arquivo, implementar a função de dispatch de cada ação descrita no types.js, no formato necessário.
+
+APP_SHOW_LOADING deverá exibir o Loading no aplicativo, trocando o valor da variável.
+APP_HIDE_LOADING deverá ocultar o Loading no aplicativo, trocando o valor da variável.
+LOGIN_DO_FORGOT_PASS deverá simular uma espera, exibir o Loading, como se estivesse enviando um e-mail de recuperação de senha, e ocultar o Loading após essa espera (chamar ação de outro Reducer).
+LOGIN_D_LOGIN deverá salvar o usuário e senha logado no estado da aplicação.
+
+Dentro de /redux, criar uma pasta /reducers, com os arquivos AppReducers.js e LoginReducers.js.
+Criar o initialState necessário de cada um, e implementar o switch-case de dispatch padrão do Redux.
+O initialState do AppReducers deverá ter o campo "showLoading", que será um boolean, inicializado com false;
+O initialState do LoginReducers deverá ter o campo "user", que será um objeto com "username" e "password", inicializado com {};
+O initialState do LoginReducers também deverá ter o campo "userSaved", que será um boolean, inicializado com false;
+
+Trocar no Login as formas de chamar o Loading, e as demais rotinas, para disparar essas ações.
+Utilizar o useDispatch do React Redux para disparar as ações, e importar as ações do AppActions e LoginActions.
