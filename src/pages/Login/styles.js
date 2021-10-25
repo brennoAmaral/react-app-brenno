@@ -6,6 +6,7 @@ import {
   Input,
   FormControl,
   InputLabel,
+  FormGroup,
 } from '@material-ui/core';
 
 const WButtonInput = '250px';
@@ -51,7 +52,8 @@ export const StyleBtn = styled(Button)({
   },
   width: WButtonInput,
   backgroundColor: 'var(--color-primary)',
-  borderRadius: '30px',
+  borderRadius: '20px',
+  marginTop: '0px',
 });
 
 export const StyleLabel = styled(InputLabel)({
@@ -70,9 +72,15 @@ export const AppStyle = styled(Box)({
   background: 'radial-gradient(circle, rgba(255,144,30,1) 0%, rgba(0,29,94,1) 100%)',
 });
 
-export const StyleSwitchBox = styled(Box)({
+export const StyleFormGroup = styled(FormGroup)({
+  '& .MuiCheckbox-root.Mui-checked': {
+    color: 'var(--color-primary)',
+  },
+  '& .MuiCheckbox-root': {
+    padding: '1px',
+  },
+  marginTop: '20px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  margin: '10px 0 0 0',
 });

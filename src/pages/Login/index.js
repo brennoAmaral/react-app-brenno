@@ -2,13 +2,13 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Link,
-  Divider,
   IconButton,
   Box,
-  Switch,
-  Typography,
+  FormControlLabel,
+  Checkbox,
 } from '@material-ui/core';
 import {
   Visibility,
@@ -16,6 +16,7 @@ import {
   AccountCircle,
   VisibilityOff,
 } from '@material-ui/icons';
+/* import * as s from './styles'; */
 import {
   LoginCardStyle,
   StyleBtn,
@@ -24,13 +25,23 @@ import {
   StyleInput,
   StyleLabel,
   StyleFormControl,
-  StyleSwitchBox,
+  StyleFormGroup,
 } from './styles';
 import TitleTypography from '../../Components/TitleTypography';
 import GftLogo from '../../asset/GftLogo';
+import { LOADING_EXIBIR, LOADING_OCULTAR } from '../../redux/actions/types';
 
 export default function Login() {
-/** codigo responsável pela validação dos inputs */
+  const { teste } = useSelector((state) => state.app);
+  console.log(teste);
+
+  const chamarRedux = useDispatch();
+
+  /** codigo responsável pela validação dos inputs */
+  const validate = Yup.object().shape({
+    user: Yup.string().min(1, 'o nome de usuário precisa ter no minimo 1 caractere ').matches('[a-zA-Z]+?', 'o nome de login é composto apenas por letras').required('campo requerido'),
+    password: Yup.string().min(7, 'a senha deve possuir no minimo 7 numeros').matches('[0-9]+?', 'a senha é composta apenas por numeros').required('campo requerido'),
+  });
   const formik = useFormik({
     initialValues: {
       user: '',
@@ -38,21 +49,13 @@ export default function Login() {
     },
     // eslint-disable-next-line no-unused-vars
     onSubmit: (values) => {
+      chamarRedux({ type: LOADING_EXIBIR });
+      setTimeout(() => {
+        chamarRedux({type: LOADING_OCULTAR});
+      }, 5000);
     },
-    validate: (values) => {
-      const error = {};
-      if (values.user.length === 0 || values.password.length < 7) {
-        error.errorMessage = 'email ou senha inválido';
-      }
-      return error;
-    },
-    validationSchema: Yup.object({
-      user: Yup.string().min(1, 'o nome de usuário precisa ter no minimo 1 caractere ').matches('^[a-zA-Z]+$'),
-    }),
-    validateOnBlur: false,
-    validateOnChange: false,
+    validationSchema: validate,
   });
-
   /** codigo responsavel por mostrar a senha */
   const [handle, setHandle] = useState({
     showPassword: false,
@@ -92,11 +95,16 @@ export default function Login() {
               value={formik.values.user}
               label="E-mail de Login"
               onChange={formik.handleChange}
+              onBlur={formik.handleChange}
               startAdornment={
                 <AccountCircle sx={{ fontSize: 28, color: 'var(--color-primary)', margin: '10px 10px 10px 0px' }} />
               }
             />
           </StyleFormControl>
+
+          <Box>
+            {formik.errors.user && formik.errors.user}
+          </Box>
 
           <StyleFormControl variant="standard" htmlFor="standard-adornment-password">
             <StyleLabel>
@@ -109,6 +117,7 @@ export default function Login() {
               type={handle.type}
               label="Senha"
               onChange={formik.handleChange}
+              onBlur={formik.handleChange}
               endAdornment={(
 
                 <IconButton onClick={showPassword}>
@@ -122,16 +131,19 @@ export default function Login() {
 
           </StyleFormControl>
         </Box>
-        {formik.errors.errorMessage && formik.errors.errorMessage}
 
-        <StyleSwitchBox>
-          <Typography sx={{ color: 'var(--color-primary)' }}>
-            Lembrar da senha?
-          </Typography>
-          <Switch color="warning" />
-        </StyleSwitchBox>
+        <Box>
+          {formik.errors.password && formik.errors.password}
+        </Box>
 
+        <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
+          <StyleFormGroup>
+            <FormControlLabel control={<Checkbox defaultChecked />} label="lembrar senha" />
+          </StyleFormGroup>
+          <Box />
+        </Box>
         <StyleBtn
+          disabled={!formik.dirty || !formik.isValid}
           type="submit"
           variant="contained"
           sx={{ margin: '10px 0' }}
@@ -149,18 +161,6 @@ export default function Login() {
             Esqueci minha senha
           </Link>
         </StyleLink>
-
-        <Divider
-          variant="middle"
-          sx={{ borderColor: 'var(--color-primary)', margin: '20px 7px 0 7px' }}
-        />
-
-        <StyleBtn
-          variant="contained"
-          sx={{ margin: '20px 0  20px 0' }}
-        >
-          Criar conta
-        </StyleBtn>
 
       </LoginCardStyle>
     </AppStyle>
