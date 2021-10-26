@@ -2,8 +2,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Box, styled } from '@material-ui/core';
+import Image from 'next/image';
 import LoadingAnimation from '../../asset/Loading/LoadingAnimation.gif';
-
 const LoadingScreen = () => {
   const { showLoading } = useSelector((state) => state.loading);
   console.log(showLoading);
@@ -22,7 +22,7 @@ const LoadingScreen = () => {
   if (showLoading) {
     return (
       <StyleLoadingBox>
-        <img src={LoadingAnimation} alt="animação de uma com colunas gregas surgindo e dentro dela uma moeda com o cifrão desenhado" />
+        <Image src={LoadingAnimation} alt="animação de uma com colunas gregas surgindo e dentro dela uma moeda com o cifrão desenhado" />
       </StyleLoadingBox>
     );
   } else {

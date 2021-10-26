@@ -1,4 +1,4 @@
-import { testeActions, testeActions2 } from '../actions/AppActions';
+/* import { testeActions, testeActions2 } from '../actions/AppActions';
 
 const initialState = {
   teste: false,
@@ -20,3 +20,4 @@ const AppReducer = (state = initialState, action) => {
 };
 
 export default AppReducer;
+ */

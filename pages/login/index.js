@@ -48,6 +48,9 @@ export default function Login() {
     // eslint-disable-next-line no-unused-vars
     onSubmit: (values) => {
       chamarRedux({ type: LOADING_EXIBIR });
+      setTimeout(() => {
+        chamarRedux({ type: LOADING_OCULTAR })
+      }, 5000);
     },
     validationSchema: validate,
   });
