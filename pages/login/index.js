@@ -29,7 +29,7 @@ import {
 } from './styles';
 import TitleTypography from '../../Components/TitleTypography';
 import GftLogo from '../../asset/GftLogo';
-import { LOADING_EXIBIR, LOADING_OCULTAR } from '../../redux/actions/types';
+import { LOADING_EXIBIR, LOADING_OCULTAR, LOGIN_REQUEST } from '../../redux/actions/types';
 
 export default function Login() {
 
@@ -47,6 +47,11 @@ export default function Login() {
     },
     // eslint-disable-next-line no-unused-vars
     onSubmit: (values) => {
+      chamarRedux({type: LOGIN_REQUEST, login:{
+        user: values.user,
+        password: values.password,
+      }});
+      console.log();
       chamarRedux({ type: LOADING_EXIBIR });
       setTimeout(() => {
         chamarRedux({ type: LOADING_OCULTAR })

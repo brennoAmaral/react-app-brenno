@@ -1,13 +1,13 @@
-import {ADD_PASSWORD, ADD_USER } from './types.js';
+import { LOGIN_REQUEST } from "./types";
 
-export const getUserName = () => {
-  return{
-    user: '',
+const LOGIN_REQUEST = () => {
+  return {
+    type: LOGIN_REQUEST,
+    login: {
+      user: '',
+      password: '',
+    }
   }
 }
 
-export const getPassword = () => {
-  return{
-    password: '',
-  }
-}
+export default LOGIN_REQUEST;

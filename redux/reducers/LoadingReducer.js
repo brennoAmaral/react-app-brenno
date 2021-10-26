@@ -6,8 +6,7 @@ const initialState = {
   showLoading: false,
 };
 
-const LoginReducer = (state = initialState, actions) => {
-  console.log(actions);
+const LoadingReducer = (state = initialState, actions) => {
   let show = false;
 
   switch (actions.type) {
@@ -29,4 +28,4 @@ const LoginReducer = (state = initialState, actions) => {
   };
 };
 
-export default LoginReducer;
+export default LoadingReducer;
