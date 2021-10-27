@@ -21,7 +21,6 @@ const LoadingReducer = (state = initialState, actions) => {
     default:
       return state;
   }
-
   return {
     ...state,
     showLoading: show,

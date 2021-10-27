@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   Link,
   IconButton,
@@ -27,6 +27,7 @@ import {
   StyleFormControl,
   StyleFormGroup,
 } from './styles';
+import { useRouter } from 'next/dist/client/router';
 import TitleTypography from '../../Components/TitleTypography';
 import GftLogo from '../../asset/GftLogo';
 import { LOADING_EXIBIR, LOADING_OCULTAR, LOGIN_REQUEST } from '../../redux/actions/types';
@@ -34,7 +35,7 @@ import { LOADING_EXIBIR, LOADING_OCULTAR, LOGIN_REQUEST } from '../../redux/acti
 export default function Login() {
 
   const chamarRedux = useDispatch();
-
+  const route = useRouter();
   /** codigo responsável pela validação dos inputs */
   const validate = Yup.object().shape({
     user: Yup.string().min(1, 'o nome de usuário precisa ter no minimo 1 caractere ').matches('[a-zA-Z]+?', 'o nome de login é composto apenas por letras').required('campo requerido'),
@@ -51,10 +52,11 @@ export default function Login() {
         user: values.user,
         password: values.password,
       }});
-      console.log();
+      
       chamarRedux({ type: LOADING_EXIBIR });
       setTimeout(() => {
-        chamarRedux({ type: LOADING_OCULTAR })
+        route.push('/home');
+        chamarRedux({ type: LOADING_OCULTAR });
       }, 5000);
     },
     validationSchema: validate,

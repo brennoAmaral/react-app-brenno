@@ -1,11 +1,10 @@
 /* import { Provider } from 'react-redux' */
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import LoadingScreen from './loadingScreen'
-import { createGlobalStyle } from 'styled-components'
-
-
-import reducers from '../redux/reducers'
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import LoadingScreen from './loadingScreen';
+import { createGlobalStyle } from 'styled-components';
+import reducers from '../redux/reducers';
+/* import { storeWrapper } from "../store"; */
 
 const GlobalStyle = createGlobalStyle`
 :root{
@@ -23,7 +22,10 @@ const GlobalStyle = createGlobalStyle`
 
 
 export default function App({ Component, pageProps }) {
-  const store = createStore(reducers);
+   const store = createStore(reducers); 
+  
+  /* export default storeWrapper.withRedux(App); */
+
   return (
     <>
     
