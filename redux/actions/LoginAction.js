@@ -9,5 +9,4 @@ const LOGIN_REQUEST = () => {
     }
   }
 }
-
 export default LOGIN_REQUEST;

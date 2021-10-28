@@ -36,6 +36,8 @@ export default function Login() {
 
   const chamarRedux = useDispatch();
   const route = useRouter();
+
+
   /** codigo responsável pela validação dos inputs */
   const validate = Yup.object().shape({
     user: Yup.string().min(1, 'o nome de usuário precisa ter no minimo 1 caractere ').matches('[a-zA-Z]+?', 'o nome de login é composto apenas por letras').required('campo requerido'),
@@ -106,7 +108,7 @@ export default function Login() {
               }
             />
           </StyleFormControl>
-
+          
           <Box>
             {formik.errors.user && formik.errors.user}
           </Box>
@@ -141,9 +143,9 @@ export default function Login() {
           {formik.errors.password && formik.errors.password}
         </Box>
 
-        <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
-          <StyleFormGroup>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="lembrar senha" />
+        <Box  sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
+          <StyleFormGroup >
+            <FormControlLabel  control={<Checkbox />} label="lembrar senha" />
           </StyleFormGroup>
           <Box />
         </Box>
