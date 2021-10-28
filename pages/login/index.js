@@ -28,9 +28,11 @@ import {
   StyleFormGroup,
 } from './styles';
 import { useRouter } from 'next/dist/client/router';
+import { HideLoading, ShowLoading } from '../../redux/actions/LoadingAction';
 import TitleTypography from '../../Components/TitleTypography';
 import GftLogo from '../../asset/GftLogo';
-import { LOADING_EXIBIR, LOADING_OCULTAR, LOGIN_REQUEST } from '../../redux/actions/types';
+import { LOGIN_REQUEST } from '../../redux/actions/types';
+import LoginRequest from '../../redux/actions/LoginAction';
 
 export default function Login() {
 
@@ -40,7 +42,7 @@ export default function Login() {
 
   /** codigo responsável pela validação dos inputs */
   const validate = Yup.object().shape({
-    user: Yup.string().min(1, 'o nome de usuário precisa ter no minimo 1 caractere ').matches('[a-zA-Z]+?', 'o nome de login é composto apenas por letras').required('campo requerido'),
+    user: Yup.string().min(1, 'o nome de usuário precisa ter no minimo 1 caractere ').matches('/^[a-z0-9]+$/i', 'o nome de login é composto apenas por letras').required('campo requerido'),
     password: Yup.string().min(7, 'a senha deve possuir no minimo 7 numeros').matches('[0-9]+?', 'a senha é composta apenas por numeros').required('campo requerido'),
   });
   const formik = useFormik({
@@ -50,15 +52,12 @@ export default function Login() {
     },
     // eslint-disable-next-line no-unused-vars
     onSubmit: (values) => {
-      chamarRedux({type: LOGIN_REQUEST, login:{
-        user: values.user,
-        password: values.password,
-      }});
+      chamarRedux(LoginRequest(values.user, values.password));
       
-      chamarRedux({ type: LOADING_EXIBIR });
+      chamarRedux(ShowLoading());
       setTimeout(() => {
         route.push('/home');
-        chamarRedux({ type: LOADING_OCULTAR });
+        chamarRedux(HideLoading());
       }, 5000);
     },
     validationSchema: validate,

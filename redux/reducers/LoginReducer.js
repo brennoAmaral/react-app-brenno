@@ -8,14 +8,18 @@ const initialState = {
 const LoginReducer =  (state = initialState, actions) =>{
  
   let login = {
-    user: '',
-    password: '',
+    user: state.user,
+    password: state.password,
   }
   
   switch (actions.type){
     case LOGIN_REQUEST:
       login.user = actions.login.user;
       login.password = actions.login.password; 
+      break;
+      
+      default:
+        return state;
   }
   return{
     ...state,

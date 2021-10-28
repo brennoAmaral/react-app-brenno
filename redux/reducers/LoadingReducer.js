@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const LoadingReducer = (state = initialState, actions) => {
-  let show = false;
+  let show = state.showLoading;
 
   switch (actions.type) {
     case LOADING_EXIBIR:

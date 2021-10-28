@@ -1,12 +1,12 @@
 import { LOGIN_REQUEST } from "./types";
 
-const LOGIN_REQUEST = () => {
+const LoginRequest = (user, password) => {
   return {
     type: LOGIN_REQUEST,
     login: {
-      user: '',
-      password: '',
+      user: user,
+      password: password,
     }
   }
 }
-export default LOGIN_REQUEST;
+export default LoginRequest;
